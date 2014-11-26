@@ -16,7 +16,7 @@ if !exists("g:cfmt_style")
     let g:cfmt_style = '-gnu'
 endif
 
-command! -buffer Cfmt call s:IndentC()
+command! Cfmt call s:IndentC()
 
 function! s:IndentC()
     let view = winsaveview()
@@ -24,7 +24,7 @@ function! s:IndentC()
     if v:shell_error
         %| " output errors returned by indent
         undo
-	echohl Error | echomsg "indent returned error" | echohl None
+        echohl Error | echomsg "indent returned error" | echohl None
     endif
     call winrestview(view)
 endfunction
